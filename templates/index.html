@@ -1,14 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playwrite+BE+VLG:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>Image Rotator</title>
-</head>
-<body>
-    <h1>Heck! We Will Rotate Your Image for You</h1>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='style.css') }}"
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playwrite+BE+VLG:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <title>Image Editor</title>
+    </head>
+    <body>
+        <div class="hero-section">
+            <h1>No Dependency Image Editor</h1>
+            <div class="image-editor">
+                <div class="image-overlay"></div>
+                <img
+                    src="https://www.shutterstock.com/image-illustration/paint-abstract-texture-watercolor-flowers-600nw-2351669081.jpg"
+                    alt="Hero Image"
+                    id="user-image"
+                />
+            </div>
+            <input
+                type="file"
+                id="user-image-upload"
+                accept="image/*"
+                onchange="uploadImage()"
+            />
+            <button  onclick="downloadImage()" class="download-button">Download Modified Image</button>
+            <h2>Actions</h2>
+            <div class="features">
+                <button onclick="rotateImage()">
+                    <img
+                        src="{{url_for('static',filename='images/rotate.png')}}"
+                        alt=""
+                        width="20px"
+                    />
+                </button>
+                <button onclick="grayscaleImage()">
+                    <img
+                    src="{{url_for('static',filename='images/b&w.png')}}"
+                    alt=""
+                    width="20px"
+                />
+                </button>
+            </div>
+        </div>
+
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <script src="{{ url_for('static', filename='features.js') }}"></script>
+    </body>
 </html>
