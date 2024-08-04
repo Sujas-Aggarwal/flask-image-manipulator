@@ -41,4 +41,5 @@ def mani_image(request):
 
         return send_file(buffer, mimetype='image/png', as_attachment=True, download_name='modified.png')
 
-    return 'No image uploaded', 400
+    return 'No image uploaded', 400\
+        
